@@ -68,19 +68,44 @@ class PassagemAerea {
     #Voo
 
     constructor(assento, primeiraClasse, valor, passageiro, voo) {
-        this.Assento = assento
-        this.PrimeiraClasse = primeiraClasse
-        this.Valor = valor
-        this.Passageiro = passageiro
-        this.Voo = voo
+        this.setAssento(assento)
+        this.setPrimeiraClasse(primeiraClasse)
+        this.setValor(valor)
+        this.setPassageiro(passageiro)
+        this.setVoo(voo)
     }
 
     setAssento(assento) {
         this.#Assento = assento
     }
-    getAssento(){
+    getAssento() {
         return this.#Assento
     }
+    setPrimeiraClasse(primeiraClasse) {
+        this.#PrimeiraClasse = primeiraClasse
+    }
+    getPrimeiraClasse() {
+        return this.#PrimeiraClasse
+    }
+    setValor(valor) {
+        this.#Valor = valor
+    }
+    getValor() {
+        return this.#Valor
+    }
+    setPassageiro(passageiro) {
+        this.#Passageiro = passageiro
+    }
+    getPassageiro() {
+        return this.#Passageiro
+    }
+    setVoo(voo) {
+        this.#Voo = voo
+    }
+    getVoo() {
+        return this.#Voo
+    }
+
 
     CalcularValor() {
         let valorPrimeiraClasse = 0
@@ -90,7 +115,7 @@ class PassagemAerea {
             this.Valor = valorPrimeiraClasse
         } else {
             valorPrimeiraClasse = this.Valor
-            console.log("Sua passagem Aérea foi na classe econômica!")
+            console.log("Sua passagem Aérea foi de classe econômica!")
         }
     }
     ExibirResumo(passagemAereaAssento, vooNumero, vooLocalDestino) {
@@ -103,34 +128,96 @@ class PassagemAerea {
 }
 
 class Voo {
-    Empresa
-    Numero
-    Data
-    Horario
-    LocalPartida
-    LocalDestino
+    #Empresa
+    #Numero
+    #Data
+    #Horario
+    #LocalPartida
+    #LocalDestino
 
     constructor(empresa, numero, data, horario, localPartida, localDestino) {
-        this.Empresa = empresa
-        this.Numero = numero
-        this.Data = data
-        this.Horario = horario
-        this.LocalPartida = localPartida
-        this.LocalDestino = localDestino
+        this.setEmpresa(empresa)
+        this.setNumero(numero)
+        this.setData(data)
+        this.setHorario(horario)
+        this.setLocalPartida(localPartida)
+        this.setLocalDestino(localDestino)
+    }
+
+    setEmpresa(empresa) {
+        this.#Empresa = empresa
+    }
+    getEmpresa() {
+        return this.#Empresa
+    }
+    setNumero(numero) {
+        this.#Numero = numero
+    }
+    getNumero() {
+        this.#Numero
+    }
+    setData(data) {
+        this.#Data = data
+    }
+    getData() {
+        return this.#Data
+    }
+    setHorario(horario) {
+        this.#Horario = horario
+    }
+    getHorario() {
+        return this.#Horario
+    }
+    setLocalPartida(localPartida) {
+        this.#LocalPartida = localPartida
+    }
+    getLocalPartida(){
+        return this.#LocalPartida
+    }
+    setLocalDestino(localDestino){
+        this.#LocalDestino = localDestino
+    }
+    getLocalDestino(){
+        return this.#LocalDestino
     }
 }
 
 class PacoteViagem {
-    Titular
-    PassagemIda
-    PassagemVolta
-    ValorTotal
+    #Titular
+    #PassagemIda
+    #PassagemVolta
+    #ValorTotal
 
     constructor(titular, passagemIda, passagemVolta, valorTotal) {
-        this.Titular = titular
-        this.PassagemIda = passagemIda
-        this.PassagemVolta = passagemVolta
-        this.ValorTotal = valorTotal
+        this.setTitular(titular)
+        this.setPassagemIda(passagemIda)
+        this.setPassagemVolta(passagemVolta)
+        this.setValorTotal(valorTotal)
+    }
+
+    setTitular(titular){
+        this.#Titular = titular
+    }
+    getTitular(){
+        return this.#Titular
+    }
+    setPassagemIda(passagemIda){
+        this.#PassagemIda = passagemIda
+    }
+    getPassagemIda(){
+        return this.#PassagemIda
+    }
+    setPassagemVolta(passagemVolta){
+        this.#PassagemVolta = passagemVolta
+    }
+    getPassagemVolta(){
+        return this.#PassagemVolta
+    }
+    setValorTotal(valorTotal){
+        this.#ValorTotal = valorTotal
+    }
+    getValorTotal(){
+        return this.#ValorTotal
     }
 }
 
