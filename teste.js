@@ -20,6 +20,38 @@
 // a. PrimeiraClasse deve aceitar somente um valor booleano;
 // b. Valor deve ser sempre maior do que zero;
 
+
+
+// 1. Com base no exercício anterior, organize a execução do código da seguinte
+// maneira:
+
+// a. Dê a opção de cadastrar um cliente e salve esse objeto em um array;
+
+// b. Faça também a opção de cadastrar um Voo e salve esse objeto em um
+// array;
+
+// c. Por último, dê a opção de cadastrar um Pacote de Viagem e salve em um
+// array;
+
+// 2. Considere as seguintes validações na hora de montar esse sistema:
+
+// a. Quando for cadastrar um pacote de viagem, na hora de escolher a
+// passagem de Ida mostra uma lista com todos os Voo cadastrados;
+
+// b. Na hora de cadastrar a passagem de Volta, exibir apenas os Voo que tem o
+// local de partida igual ao local de destino do Voo de Ida escolhido;
+
+// c. Na hora de escolher um assento na passagem aérea, verifique se esse
+// assento já não foi escolhido nesse voo, em caso positivo peça para escolher
+// outro assento;
+
+// Fique a vontade para criar funções para ajudar na execução / organização do seu
+// código!
+
+let Clientes = []
+let Voos = []
+
+
 class Cliente {
     #Nome
     #Cpf
@@ -102,11 +134,11 @@ class PassagemAerea {
     }
     setValor(valor) {
         let continuar3 = true
-        while(continuar3){
-            if(valor <= 0){
+        while (continuar3) {
+            if (valor <= 0) {
                 console.log("O valor deve ser maior que zero (0)")
                 valor = prompt("Insira um valor corretamente")
-            }else{
+            } else {
                 this.#Valor = valor
                 continuar3 = false
             }
@@ -243,7 +275,67 @@ class PacoteViagem {
     }
 }
 
-let Cliente1 = new Cliente("Leonardo", "123678972-30", "25/09/2002")
+// 1. Com base no exercício anterior, organize a execução do código da seguinte
+// maneira:
+
+// a. Dê a opção de cadastrar um cliente e salve esse objeto em um array;
+
+// b. Faça também a opção de cadastrar um Voo e salve esse objeto em um
+// array;
+
+// c. Por último, dê a opção de cadastrar um Pacote de Viagem e salve em um
+// array;
+
+// 2. Considere as seguintes validações na hora de montar esse sistema:
+
+// a. Quando for cadastrar um pacote de viagem, na hora de escolher a
+// passagem de Ida mostra uma lista com todos os Voo cadastrados;
+
+// b. Na hora de cadastrar a passagem de Volta, exibir apenas os Voo que tem o
+// local de partida igual ao local de destino do Voo de Ida escolhido;
+
+// c. Na hora de escolher um assento na passagem aérea, verifique se esse
+// assento já não foi escolhido nesse voo, em caso positivo peça para escolher
+// outro assento;
+
+// Fique a vontade para criar funções para ajudar na execução / organização do seu
+// código!
+
+
+let continuarExecutando = true
+while (continuarExecutando) {
+    let opcao = prompt("Para cadastrar um cliente insira (1), Para cadastrar um Voo (2), Para cadastrar um pacote de viagem (3)")
+    switch (opcao) {
+        case "1":
+            let nome = prompt("Insira um nome")
+            let cpf = prompt("Insira um cpf")
+            let dataNascimento = prompt("Insira uma data de nascimento")
+            let clinte1 = new Cliente(nome, cpf, dataNascimento)
+            Clientes.push(clinte1)
+            break;
+        case "2":
+            let empresa = prompt("Insira a Empresa")
+            let numero = prompt("Insira o numero do voo")
+            let data = prompt("Insira a data do voo")
+            let horario = prompt("Insira o horário do voo")
+            let localPartida = prompt("Insira o local de partida do voo")
+            let localDestino = prompt("Insira o local de destino do voo")
+            let Voo1 = new Voo(empresa, numero, data, horario, localPartida, localDestino)
+            Voos.push(Voo1)
+            break;
+
+            
+        case "3":
+
+            break
+    }
+    let desejaContinuar = prompt("Deseja continuar executando? s ou n")
+    if (desejaContinuar != "s") {
+        continuarExecutando = false
+    }
+}
+
+
 
 let Voo1 = new Voo("Emirates", "427816728390", "21/12/2022", 15, "GRU Airport(São Paulo, Brasil)", "Aeroporto Internacional de Dubai(Al Garhoud, Dubai)")
 
