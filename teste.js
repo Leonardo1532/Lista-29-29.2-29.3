@@ -354,17 +354,21 @@ while (continuarExecutando) {
 
             console.log(Voos)
 
+            let passagemIdaAssento
             let VerificacaoDeAssento = true
             while (VerificacaoDeAssento) {
 
-                let passagemIdaAssento = parseInt(prompt("Qual o assento da sua passagem de Ida?"))
+                passagemIdaAssento = parseInt(prompt("Qual o assento da sua passagem de Ida?"))
 
-                for (let i = 0; i < PassagensAereas.length; i++) {
+                for (let i = 0; i <= PassagensAereas.length; i++) {
 
-                    if(passagemIdaAssento == PassagensAereas[i]){
+                    if(PassagensAereas.length == 0){
+                        console.log("Assento Disponível!")
+                        VerificacaoDeAssento = false
+                    }else if (passagemIdaAssento == PassagensAereas[i].getAssento()) {
                         console.log("O assento ja foi escolhido, escolha outro!")
 
-                    }else{
+                    } else {
                         console.log("Assento Disponível!")
                         VerificacaoDeAssento = false
                     }
@@ -385,7 +389,7 @@ while (continuarExecutando) {
             let passagemIdaVoo = prompt("Insira a data do voo")
             let vooIda
             for (let index3 = 0; index3 < Voos.length; index3++) {
-                if (passagemIdaVoo == Voos[index3].getData) {
+                if (passagemIdaVoo == Voos[index3].getData()) {
                     vooIda = Voos[index3]
                 }
             }
@@ -398,7 +402,27 @@ while (continuarExecutando) {
                 }
             }
 
-            let passagemVoltaAssento = parseInt(prompt("Qual o assento da sua passagem de Volta?"))
+
+            let VerificacaoDeAssento2 = true
+            let passagemVoltaAssento
+            while (VerificacaoDeAssento2) {
+                passagemVoltaAssento = parseInt(prompt("Qual o assento da sua passagem de Volta?"))
+
+                for (let i2 = 0; i2 <= PassagensAereas.length; i2++) {
+                    if(PassagensAereas.length == 0){
+                        console.log("Assento Disponível!")
+                        VerificacaoDeAssento2 = false
+                    }else if(passagemVoltaAssento == PassagensAereas[i2].getAssento()) {
+                        console.log("O assento ja foi escolhido, escolha outro!")
+
+                    } else {
+                        console.log("Assento Disponível!")
+                        VerificacaoDeAssento2 = false
+                    }
+
+                }
+
+            }
 
             let passagemVoltaPrimeiraClasse = prompt("Deseja ir de primeira classe? s ou n")
 
@@ -414,7 +438,7 @@ while (continuarExecutando) {
             let passagemVoltaVoo = prompt("Insira a data do voo")
             let vooVolta
             for (let index5 = 0; index5 < Voos.length; index5++) {
-                if (passagemVoltaVoo == Voos[index5].getData) {
+                if (passagemVoltaVoo == Voos[index5].getData()) {
                     vooVolta = Voos[index5]
                 }
             }
@@ -436,6 +460,10 @@ while (continuarExecutando) {
             PacotesDeViagens.push(pacoteViagem1)
             break;
 
+        default:
+            console.log("Opção Inválida")
+            break;
+
 
     }
     let desejaContinuar = prompt("Deseja continuar executando? s ou n")
@@ -443,6 +471,13 @@ while (continuarExecutando) {
         continuarExecutando = false
     }
 }
+
+
+
+
+
+
+
 // a. Quando for cadastrar um pacote de viagem, na hora de escolher a
 // passagem de Ida mostra uma lista com todos os Voo cadastrados;
 
